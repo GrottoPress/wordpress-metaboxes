@@ -126,16 +126,16 @@
         },
         {
             "name": "grottopress/form-field",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrottoPress/form-field.git",
-                "reference": "e9175527e905e38102aed08a87b55ccf76cc993e"
+                "reference": "a0df7d608fd614746928e0c58d4f6bbee2feb582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrottoPress/form-field/zipball/e9175527e905e38102aed08a87b55ccf76cc993e",
-                "reference": "e9175527e905e38102aed08a87b55ccf76cc993e",
+                "url": "https://api.github.com/repos/GrottoPress/form-field/zipball/a0df7d608fd614746928e0c58d4f6bbee2feb582",
+                "reference": "a0df7d608fd614746928e0c58d4f6bbee2feb582",
                 "shasum": ""
             },
             "require": {
@@ -174,7 +174,7 @@
                 "form",
                 "html"
             ],
-            "time": "2017-08-13 21:54:04"
+            "time": "2017-08-24 22:37:15"
         },
         {
             "name": "grottopress/wordpress-field",
