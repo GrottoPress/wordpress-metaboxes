@@ -24,7 +24,7 @@ if ( \defined( 'WPINC' ) ) :
  *
  * @since 0.1.0
  */
-abstract class Metaboxes {
+trait Metaboxes {
     /**
      * Boxes
      *

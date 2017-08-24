@@ -16,10 +16,18 @@ Use thus:
 
     use GrottoPress\WordPress\Metaboxes\Metaboxes;
 
-    // Extend the `Metaboxes` class
+    /**
+     * Define your own metaboxes class
+     */
+    class My_Metaboxes_Class {
+        /**
+         * Import the metaboxes trait
+         */
+        use Metaboxes;
 
-    class My_Metaboxes_Class extends Metaboxes {
-        // Define your boxes with the `metaboxes` method
+        /**
+         * Define your metaboxes with the `metaboxes` method
+         */
         protected function metaboxes( WP_Post $post ): array {
             $boxes = [];
 
