@@ -1,0 +1,36 @@
+{
+    "name": "grottopress/wordpress-metaboxes",
+    "description": "A library to set up metaboxes in WordPress.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "GrottoPress.com",
+            "email": "info@grottopress.com",
+            "homepage": "https://www.grottopress.com"
+        },
+        {
+          "name": "N Atta Kusi Adusei",
+          "homepage": "https://twitter.com/akadusei",
+          "role": "Developer"
+        }
+    ],
+    "keywords": [ "wordpress" ],
+    "support": {
+        "issues": "https://github.com/GrottoPress/wordpress-metaboxes/issues",
+        "wiki": "https://github.com/GrottoPress/wordpress-metaboxes/wiki",
+        "source": "https://github.com/GrottoPress/wordpress-metaboxes/"
+    },
+    "require": {
+        "php": ">=7.0",
+        "grottopress/wordpress-field": "^0.1"
+    },
+    "require-dev": {
+        "lucatume/wp-browser": "^1.21"
+    },
+    "autoload": {
+        "classmap": [ "src/" ]
+    },
+    "autoload-dev": {
+        "classmap": [ "tests/" ]
+    }
+}
