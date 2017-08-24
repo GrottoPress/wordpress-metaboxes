@@ -31,7 +31,7 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string $id Metabox ID
+	 * @var string $id Metabox ID.
 	 */
 	protected $id;
 	
@@ -41,7 +41,7 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string $title Metabox title
+	 * @var string $title Metabox title.
 	 */
 	protected $title;
 	
@@ -51,7 +51,7 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string|array|WP_Screen $screen Screen on which to show meta box
+	 * @var string|array|WP_Screen $screen Screen on which to show meta box.
 	 */
 	protected $screen;
 	
@@ -61,7 +61,7 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string $context Metabox context
+	 * @var string $context Metabox context.
 	 */
 	protected $context;
 	
@@ -71,7 +71,7 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string $context Priority
+	 * @var string $context Priority.
 	 */
 	protected $priority;
 	
@@ -81,7 +81,7 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string $fields Fields
+	 * @var array $fields Fields.
 	 */
 	protected $fields;
 	
@@ -91,14 +91,14 @@ class Metabox {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var string $notes Notes added to bottom of meta boxes
+	 * @var string $notes Notes added to bottom of meta boxes.
 	 */
 	protected $notes;
 
 	/**
 	 * Constructor
 	 *
-	 * @var array $args Metabox arguments supplied as associative array
+	 * @var array $args Metabox arguments supplied as associative array.
 	 *
 	 * @since 0.1.0
 	 * @access public
@@ -176,31 +176,13 @@ class Metabox {
 	 * @access public
 	 */
 	public function save( int $post_id = 0 ) {
-	    if ( $post_id < 1 ) {
-			return;
-		}
-	    
 	    if ( ! $this->fields ) {
 			return;
 		}
 
-		if ( \defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
-		
-		if (
-			! \current_user_can( \get_post_type_object( \get_post_type( $post_id ) )
-			->cap->edit_post, $post_id )
-		) {
-			return;
-		}
-		
-		if (
-			! isset( $_POST[ $this->nonce() ] )
-			|| ! \wp_verify_nonce( $_POST[ $this->nonce() ], \basename( __FILE__ ) )
-		) {
-			return;
-		}
+		if ( ! $this->pre_save_checks_passed( $post_id ) ) {
+	    	return;
+	    }
 
 		foreach ( $this->fields as $key => $attr ) {
 			$attr['id'] = isset( $attr['id'] ) ? \sanitize_title( $attr['id'] ) : '';
@@ -262,6 +244,42 @@ class Metabox {
 
     	$this->priority = ( \in_array( $this->priority, [ 'high', 'low' ] )
 	        ? $this->priority : null );
+	}
+
+	/**
+	 * Pre save checks
+	 *
+	 * @var int $post_id Post ID.
+	 *
+	 * @since 0.1.0
+	 * @access protected
+	 *
+	 * @return bool Whether or not checks passed.
+	 */
+	protected function pre_save_checks_passed( int $post_id ): bool {
+		if ( $post_id < 1 ) {
+			return false;
+		}
+
+		if ( \defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return false;
+		}
+		
+		if (
+			! \current_user_can( \get_post_type_object( \get_post_type( $post_id ) )
+			->cap->edit_post, $post_id )
+		) {
+			return false;
+		}
+		
+		if (
+			! isset( $_POST[ $this->nonce() ] )
+			|| ! \wp_verify_nonce( $_POST[ $this->nonce() ], \basename( __FILE__ ) )
+		) {
+			return false;
+		}
+
+		return true;
 	}
 }
 
