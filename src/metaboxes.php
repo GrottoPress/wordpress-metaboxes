@@ -33,7 +33,7 @@ trait Metaboxes {
      * 
      * @var array $boxes Boxes.
      */
-    protected $metaboxes;
+    protected $metaboxes = null;
 
     /**
      * Run setup
