@@ -6,6 +6,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased 0.1.0 - 
 ### Added
-- Added `Metaboxes` class
+- Added `Metaboxes` trait
 - Added `Metabox` class
-- Set up test suite with [PHPUnit](https://phpunit.de)
+- Set up test suite
