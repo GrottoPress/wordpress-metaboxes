@@ -142,9 +142,9 @@ class Metabox {
 	 * @var array $fields Fields passed as arg to callback.
 	 *
 	 * @since 0.1.0
-	 * @access protected
+	 * @access public
 	 */
-	protected function render( WP_Post $post, array $fields = [] ) {
+	public function render( WP_Post $post, array $fields = [] ) {
         if ( ! $this->fields ) {
             return;
         }
