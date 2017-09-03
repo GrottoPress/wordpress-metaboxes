@@ -6,8 +6,8 @@
  * @package GrottoPress\WordPress\Metaboxes
  * @since 0.1.0
  *
- * @author GrottoPress (https://www.grottopress.com)
- * @author N Atta Kus Adusei (https://twitter.com/akadusei)
+ * @author GrottoPress <info@grottopress.com>
+ * @author N Atta Kus Adusei
  */
 
 declare ( strict_types = 1 );
@@ -77,7 +77,7 @@ trait Metaboxes {
     /**
      * Save meta boxes as custom fields.
      *
-     * @var integer $post_id Post ID.
+     * @param integer $post_id Post ID.
      *
      * @since 0.1.0
      * @access public
@@ -104,7 +104,7 @@ trait Metaboxes {
      *
      * Override this in child classes to build your metaboxes.
      *
-     * @var \WP_Post $post Post.
+     * @param \WP_Post $post Post.
      *
      * @since 0.1.0
      * @access protected

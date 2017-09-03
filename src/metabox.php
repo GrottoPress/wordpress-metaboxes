@@ -6,8 +6,8 @@
  * @package GrottoPress\WordPress\Metaboxes
  * @since 0.1.0
  *
- * @author GrottoPress (https://www.grottopress.com)
- * @author N Atta Kus Adusei (https://twitter.com/akadusei)
+ * @author GrottoPress <info@grottopress.com>
+ * @author N Atta Kus Adusei
  */
 
 declare ( strict_types = 1 );
@@ -98,7 +98,7 @@ class Metabox {
 	/**
 	 * Constructor
 	 *
-	 * @var array $args Metabox arguments supplied as associative array.
+	 * @param array $args Metabox arguments supplied as associative array.
 	 *
 	 * @since 0.1.0
 	 * @access public
@@ -138,8 +138,8 @@ class Metabox {
 	/**
 	 * Do metabox callback.
 	 *
-	 * @var \WP_Post $post Post.
-	 * @var array $fields Fields passed as arg to callback.
+	 * @param \WP_Post $post Post.
+	 * @param array $fields Fields passed as arg to callback.
 	 *
 	 * @since 0.1.0
 	 * @access public
@@ -170,7 +170,7 @@ class Metabox {
 	/**
 	 * Save meta box.
 	 *
-	 * @var int $post_id Post ID.
+	 * @param int $post_id Post ID.
 	 *
 	 * @since 0.1.0
 	 * @access public
@@ -209,7 +209,7 @@ class Metabox {
 	/**
 	 * Set attributes
 	 *
-	 * @var array $args	Arguments supplied to this object.
+	 * @param array $args	Arguments supplied to this object.
 	 *
 	 * @since 0.1.0
 	 * @access protected
@@ -249,7 +249,7 @@ class Metabox {
 	/**
 	 * Pre save checks
 	 *
-	 * @var int $post_id Post ID.
+	 * @param int $post_id Post ID.
 	 *
 	 * @since 0.1.0
 	 * @access protected
