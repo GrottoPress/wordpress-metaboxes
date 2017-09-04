@@ -215,11 +215,9 @@ class Metabox {
 	 * @access protected
 	 */
 	protected function set_attributes( array $args ) {
-		if ( ! $args ) {
+		if ( ! ( $vars = \get_object_vars( $this ) ) ) {
 			return;
 		}
-
-		$vars = \get_object_vars( $this );
 
 		foreach ( $vars as $key => $value ) {
 			$this->$key = $args[ $key ] ?? '';
