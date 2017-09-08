@@ -28,9 +28,9 @@
         "lucatume/wp-browser": "^1.21"
     },
     "autoload": {
-        "classmap": [ "src/" ]
+        "psr-4": { "GrottoPress\\WordPress\\Metaboxes\\": "src/" }
     },
     "autoload-dev": {
-        "classmap": [ "tests/" ]
+        "psr-4": { "GrottoPress\\WordPress\\Metaboxes\\": "tests/wpunit/" }
     }
 }
