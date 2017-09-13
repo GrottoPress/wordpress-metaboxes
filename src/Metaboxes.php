@@ -10,31 +10,20 @@
  * @author N Atta Kus Adusei
  */
 
-declare ( strict_types = 1 );
+declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\Metaboxes;
 
 use GrottoPress\WordPress\Metaboxes\Metabox;
 use \WP_Post;
 
-if ( \defined( 'WPINC' ) ) :
-
 /**
  * Metaboxes
  *
  * @since 0.1.0
  */
-trait Metaboxes {
-    /**
-     * Boxes
-     *
-     * @since 0.1.0
-     * @access protected
-     * 
-     * @var array $boxes Boxes.
-     */
-    protected $metaboxes = null;
-
+trait Metaboxes
+{
     /**
      * Run setup
      *
@@ -43,16 +32,17 @@ trait Metaboxes {
      * @since 0.1.0
      * @access public
      */
-    public function setup() {
-        \add_action( 'add_meta_boxes', [ $this, 'add' ], 10, 2 );
-        \add_action( 'save_post', [ $this, 'save' ] );
-        \add_action( 'edit_attachment', [ $this, 'save' ] );
+    public function setup()
+    {
+        \add_action('add_meta_boxes', [$this, 'add'], 10, 2);
+        \add_action('save_post', [$this, 'save']);
+        \add_action('edit_attachment', [$this, 'save']);
     }
 
     /**
      * Add meta boxes.
      *
-     * Create one or more meta boxes to be displayed 
+     * Create one or more meta boxes to be displayed
      * on the editor screens.
      *
      * @action add_meta_boxes
@@ -60,17 +50,14 @@ trait Metaboxes {
      * @since 0.1.0
      * @access public
      */
-    public function add( string $post_type, WP_Post $post ) {
-        if ( null === $this->metaboxes ) {
-            $this->metaboxes = $this->metaboxes( $post );
-        }
-
-        if ( ! $this->metaboxes ) {
+    public function add(string $post_type, WP_Post $post)
+    {
+        if (!($metaboxes = $this->metaboxes($post))) {
             return;
         }
         
-        foreach ( $this->metaboxes as $id => $attr ) {
-            ( new Metabox( $attr ) )->add();
+        foreach ($metaboxes as $id => $attr) {
+            $this->metabox($attr)->add();
         }
     }
 
@@ -85,17 +72,14 @@ trait Metaboxes {
      * @action save_post
      * @action edit_attachment
      */
-    public function save( int $post_id ) {
-        if ( null === $this->metaboxes ) {
-            $this->metaboxes = $this->metaboxes( \get_post( $post_id ) );
-        }
-
-        if ( ! $this->metaboxes ) {
+    public function save(int $post_id)
+    {
+        if (!($metaboxes = $this->metaboxes(\get_post($post_id)))) {
             return;
         }
         
-        foreach ( $this->metaboxes as $id => $attr ) {
-            ( new Metabox( $attr ) )->save( $post_id );
+        foreach ($metaboxes as $id => $attr) {
+            $this->metabox($attr)->save($post_id);
         }
     }
 
@@ -111,7 +95,20 @@ trait Metaboxes {
      *
      * @return array Metaboxes.
      */
-    abstract protected function metaboxes( WP_Post $post ): array;
-}
+    abstract protected function metaboxes(WP_Post $post): array;
 
-endif;
+    /**
+     * Get metabox
+     *
+     * @param array $args
+     *
+     * @since 0.1.0
+     * @access protected
+     *
+     * @return Metabox
+     */
+    protected function metabox(array $args): Metabox
+    {
+        return new Metabox($args);
+    }
+}
