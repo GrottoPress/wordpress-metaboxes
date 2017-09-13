@@ -1,9 +1,10 @@
 <?php
+declare (strict_types = 1);
+
 namespace GrottoPress\WordPress\Metaboxes;
 
 class MetaboxesTest extends \Codeception\TestCase\WPTestCase
 {
-
     public function setUp()
     {
         // before
@@ -23,7 +24,6 @@ class MetaboxesTest extends \Codeception\TestCase\WPTestCase
     // tests
     public function testMe()
     {
-        $this->assertTrue( true );
+        $this->assertTrue(true);
     }
-
 }
