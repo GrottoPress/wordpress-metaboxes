@@ -22,7 +22,7 @@ use \WP_Post;
  *
  * @since 0.1.0
  */
-trait Metaboxes
+trait MetaboxesTrait
 {
     /**
      * Run setup

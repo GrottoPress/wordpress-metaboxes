@@ -22,7 +22,7 @@
     },
     "require": {
         "php": ">=7.0",
-        "grottopress/wordpress-field": "^0.2"
+        "grottopress/wordpress-field": "^0.3"
     },
     "require-dev": {
         "lucatume/wp-browser": "^1.21"

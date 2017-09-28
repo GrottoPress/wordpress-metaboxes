@@ -155,13 +155,20 @@ class Metabox
             return;
         }
         
-        $html = \wp_nonce_field(\basename(__FILE__), $this->nonce(), true, false);
+        $html = \wp_nonce_field(
+            \basename(__FILE__),
+            $this->nonce(),
+            true,
+            false
+        );
         
         foreach ($this->fields as $key => $attr) {
-            $attr['id'] = isset($attr['id']) ? \sanitize_title($attr['id']) : '';
+            $attr['id'] = isset($attr['id'])
+                ? \sanitize_title($attr['id']) : '';
             $attr['name'] = empty($attr['name']) ? $attr['id'] : $attr['name'];
             $attr['value'] = \get_post_meta($post->ID, $attr['id']);
-            $attr['value'] = (1 === \count($attr['value']) ? $attr['value'][0] : $attr['value']);
+            $attr['value'] = (1 === \count($attr['value'])
+                ? $attr['value'][0] : $attr['value']);
 
             $html .= $this->field($attr)->render();
         }
