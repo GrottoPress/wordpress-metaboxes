@@ -14,7 +14,7 @@ Use thus:
 
     <?php
 
-    use GrottoPress\WordPress\Metaboxes\Metaboxes;
+    use GrottoPress\WordPress\Metaboxes\MetaboxesTrait;
 
     /**
      * Define your own metaboxes class
@@ -23,7 +23,7 @@ Use thus:
         /**
          * Import the metaboxes trait
          */
-        use Metaboxes;
+        use MetaboxesTrait;
 
         /**
          * Define your metaboxes with the `metaboxes` method
