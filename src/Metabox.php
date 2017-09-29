@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace GrottoPress\WordPress\Metaboxes;
 
 use GrottoPress\WordPress\Form\Field;
-use \WP_Post;
+use WP_Post;
 
 /**
  * WordPress Metabox
@@ -143,7 +143,7 @@ class Metabox
     /**
      * Do metabox callback.
      *
-     * @param \WP_Post $post Post.
+     * @param WP_Post $post Post.
      * @param array $fields Fields passed as arg to callback.
      *
      * @since 0.1.0
