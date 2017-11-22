@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace GrottoPress\WordPress\Metaboxes;
 
 use GrottoPress\WordPress\Metaboxes\Metabox;
-use \WP_Post;
+use WP_Post;
 
 /**
  * Metaboxes
@@ -88,7 +88,7 @@ trait MetaboxesTrait
      *
      * Override this in child classes to build your metaboxes.
      *
-     * @param \WP_Post $post Post.
+     * @param WP_Post $post Post.
      *
      * @since 0.1.0
      * @access protected
@@ -103,11 +103,11 @@ trait MetaboxesTrait
      * @param array $args
      *
      * @since 0.1.0
-     * @access protected
+     * @access private
      *
      * @return Metabox
      */
-    protected function metabox(array $args): Metabox
+    private function metabox(array $args): Metabox
     {
         return new Metabox($args);
     }
