@@ -103,11 +103,11 @@ trait MetaboxesTrait
      * @param array $args
      *
      * @since 0.1.0
-     * @access protected
+     * @access private
      *
      * @return Metabox
      */
-    protected function metabox(array $args): Metabox
+    private function metabox(array $args): Metabox
     {
         return new Metabox($args);
     }
